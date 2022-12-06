@@ -18,24 +18,26 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
+title: My personal learning notes.
 email: sedthakit(at)gmail(dot)com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  This is my personal leaning journal.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://wingless-archangel.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+favicon_path: "/assets/gitbook/images/favicon.ico"
 twitter_username: nataoh
 github_username:  Wingless-Archangel
 
 # Build settings
-# theme: minima
-# remote_theme: pages-themes/dinky@v0.2.0
+collections:
+  pages:
+    output: true
+    permalink: /:collection/:path
 remote_theme: sighingnow/jekyll-gitbook
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+
 toc:
   enabled: true
   h_min: 1
@@ -49,7 +51,8 @@ toc:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
+exclude:
+  - _drafts
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
