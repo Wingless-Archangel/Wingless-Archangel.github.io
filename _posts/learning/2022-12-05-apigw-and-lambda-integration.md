@@ -8,13 +8,13 @@ tags: aws, apigw, terraform, lambda
 
 ## Overview
 
-When I looked into the Terraform documentation.
-I found that the AWS documentation is using the resource policy to allow
-API Gateway to invoke the lambda function.
+When I looked into the Terraform documentation. I found that the documentation
+is using the resource policy to allow API Gateway to invoke the lambda function
+by using the `aws_lambda_permission`[^1] resource to allow various resources
+to invoke the lambda.
 
-in Terraform, they are using the `aws_lambda_permission`[^1] resource
-allow Various resources to invoke the lambda which also using the
-resource policy within the lambda.
+This piqued my interest that is it possible to use IAM role to invoke the
+lambda function instead of using the resource policy in the lambda function.
 
 This post will show you how to allow REST API Gateway to invoke the
 lambda function via IAM Role instead of resource policy.
@@ -23,9 +23,10 @@ lambda function via IAM Role instead of resource policy.
 > #### DANGER
 >
 > Please don't just copy paste this example because these configurations
-> is for presentation purposes. For example, there's no authentication
-> and authorization when the end user call to API Gateway which make
-> your API expose to the internet without any authentication.
+> is for presentation purposes. There's no security hardening in place.
+> For example, there's no authentication and authorization when the end-user
+> call to API Gateway which make your API expose to the internet without
+> any authentication.
 >
 > Please consider following [OWASP API Security project](https://owasp.org/www-project-api-security/)
 > before deploy the API to the public internet.
@@ -155,8 +156,8 @@ resource "aws_api_gateway_integration" "winter_app_lambda" {
 
 ## Conclusion
 
-That's it folks! 
----
+That's it folks! we now having the API Gateway that can invoke the lambda
+function with IAM Role.
 
 [^1]: [Specify Lambda Permissions for API Gateway REST API](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_permission#specify-lambda-permissions-for-api-gateway-rest-api)
 [^2]: [Terraform](https://developer.hashicorp.com/terraform/docs)
