@@ -8,7 +8,9 @@ tags: kubernetes, k8s, gatekeeper
 
 ## Introduction
 
-In the early day, Kubernetes offer [PodSecurityPolicy](https://kubernetes.io/docs/concepts/security/pod-security-policy/). However, it was marked deprecated in version 1.21. Kubernetes team introduce [Pod Security Admission](https://kubernetes.io/docs/concepts/security/pod-security-admission/) but it's still in beta and there's no customize policy as of the writing date (2023-08-04).
+In the early day, Kubernetes offer [PodSecurityPolicy](https://kubernetes.io/docs/concepts/security/pod-security-policy/). However, it was marked deprecated in version 1.21. Kubernetes team introduce [Pod Security Admission](https://kubernetes.io/docs/concepts/security/pod-security-admission/) but it's still in beta and there's no customize policy without involving other components as of the writing date (2023-08-04).
+
+One of the recommendation from kubernetes is Gatekeeper.
 
 This document is the result of my self-study regarding the Gatekeeper.
 
@@ -158,6 +160,5 @@ In Gatekeeper library website, there are pod-security-policies equivalent rule t
 1. [UID and GID best practices](https://www.redhat.com/sysadmin/user-account-gid-uid)
 2. [PodSecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#podsecuritycontext-v1-core)
 3. [SecurityContext](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#securitycontext-v1-core)
-
 
 [^1]: [Constraint Template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto#constraint-templates)
